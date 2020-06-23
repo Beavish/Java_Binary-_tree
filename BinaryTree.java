@@ -11,7 +11,7 @@ public class BinaryTree {
 
 			root = newNode;
 
-			System.out.println("Root Node has been added"+root);
+			
 		} else {
 			// nodes that we're going to be working with, focus node will be added, then
 			// we're going to check,
@@ -64,25 +64,57 @@ public class BinaryTree {
 
 	public void inOrder(Node focusNode) {
 		if (focusNode != null) {
-			// so lets think about this, if there's a left node print it,
-			// if theres a right node print it..
+			
 			inOrder(focusNode.leftNode);
-			System.out.println("Left Node:" + focusNode);
+			System.out.println(focusNode);
 			inOrder(focusNode.rightNode);
-			System.out.println("Right Node:" + focusNode);
+			
 		}
+	}
+
+	// PRE ORDER TRAVERSAL
+	public void preOrder(Node focusNode) {
+
+		if (focusNode != null) {
+
+			System.out.println(focusNode);
+
+			preOrder(focusNode.leftNode);
+			preOrder(focusNode.rightNode);
+
+		}
+
+	}
+
+	// POST ORDER TRAVERSAL
+	public void postOrder(Node focusNode) {
+
+		if (focusNode != null) {
+
+			postOrder(focusNode.leftNode);
+			postOrder(focusNode.rightNode);
+
+			System.out.println(focusNode);
+
+		}
+
 	}
 
 	public static void main(String[] args) {
 		BinaryTree myBinaryTree = new BinaryTree();
-		myBinaryTree.addNode(1, "First Node added");
-		myBinaryTree.addNode(2, "Second Node Added");
-		myBinaryTree.addNode(3, "Third Node Added");
-		myBinaryTree.addNode(40, "40");
-		myBinaryTree.addNode(50, "50");
-		myBinaryTree.addNode(99, "99");
+		myBinaryTree.addNode(1, "A");
+		myBinaryTree.addNode(2, "B");
+		myBinaryTree.addNode(3, "C");
+		myBinaryTree.addNode(4, "D");
+		myBinaryTree.addNode(5, "E");
+		myBinaryTree.addNode(6, "F");
+		myBinaryTree.addNode(7, "G");
 		// now lets traverse and check out print statements
 		myBinaryTree.inOrder(myBinaryTree.root);
+		System.out.println("***********************");
+		myBinaryTree.preOrder(myBinaryTree.root);
+		System.out.println("***********************");
+		myBinaryTree.postOrder(myBinaryTree.root);
 	}
 }
 
